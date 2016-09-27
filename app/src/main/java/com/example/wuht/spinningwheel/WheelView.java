@@ -42,7 +42,7 @@ public class WheelView extends View {
     }
 
     private void init() {
-        initPaint(mPaint, Color.RED, true, Paint.Style.STROKE);
+        initPaint(mPaint, Color.WHITE, true, Paint.Style.STROKE);
         mPaint.setStrokeWidth(15);
         mPaint.setStrokeCap(Paint.Cap.ROUND);
 
@@ -78,89 +78,14 @@ public class WheelView extends View {
 
         canvas.translate(mWidth / 2, mHeight / 2);
         Path path = new Path();
-        mPathMeasure1.getSegment(mPathLength * alpha * alpha, mPathLength * alpha * alpha + 200 * (-4 * alpha * alpha + 4 * alpha), path, true);
-        mPathMeasure.setPath(path, false);
-        int num = (int) (mPathMeasure.getLength() / 15);
-        float[] pos = new float[2];
-        switch (num) {
-            default:
-            case 6:
-                mPathMeasure.getPosTan(num * 6, pos, null);
-                mPaint.setColor(Color.argb(0, 255, 54, 43));
-                canvas.drawPoint(pos[0], pos[1], mPaint);
-            case 5:
-                mPathMeasure.getPosTan(num * 5, pos, null);
-                mPaint.setColor(Color.argb(255 - 28 * 1, 255, 54, 43));
-                canvas.drawPoint(pos[0], pos[1], mPaint);
-            case 4:
-                mPathMeasure.getPosTan(num * 4, pos, null);
-                mPaint.setColor(Color.argb(255 - 28 * 2, 255, 54, 43));
-                canvas.drawPoint(pos[0], pos[1], mPaint);
-            case 3:
-                mPathMeasure.getPosTan(num * 3, pos, null);
-                mPaint.setColor(Color.argb(255 - 28 * 3, 255, 54, 43));
-                canvas.drawPoint(pos[0], pos[1], mPaint);
-            case 2:
-                mPathMeasure.getPosTan(num * 2, pos, null);
-                mPaint.setColor(Color.argb(255 - 28 * 4, 255, 54, 43));
-                canvas.drawPoint(pos[0], pos[1], mPaint);
-            case 1:
-                mPathMeasure.getPosTan(num, pos, null);
-                mPaint.setColor(Color.argb(255 - 28 * 5, 255, 54, 43));
-                canvas.drawPoint(pos[0], pos[1], mPaint);
-            case 0:
-                mPathMeasure.getPosTan(0, pos, null);
-                mPaint.setColor(Color.argb(255 - 6 * 28, 255, 54, 43));
-                canvas.drawPoint(pos[0], pos[1], mPaint);
-                break;
-        }
-/*        for (int i = 0; i < num - 1; i++) {
-            mPathMeasure.getPosTan(num * i, pos, null);
-            mPaint.setColor(0xffffffff - i * 200);
-            canvas.drawPoint(pos[0], pos[1], mPaint);
-        }*/
+        mPathMeasure1.getSegment(mPathLength * alpha * alpha, mPathLength * alpha * alpha + 100 * (-4 * alpha * alpha + 4 * alpha), path, true);
+        canvas.drawPath(path,mPaint);
 
-
-        //canvas.drawPath(path, mPaint);
 
 
         Path path1 = new Path();
-        mPathMeasure2.getSegment(mPathLength * alpha * alpha, mPathLength * alpha * alpha + 200 * (-4 * alpha * alpha + 4 * alpha), path1, true);
-        mPathMeasure.setPath(path1, false);
-        int num1 = (int) (mPathMeasure.getLength() / 15);
-        float[] pos1 = new float[2];
-        switch (num1) {
-            default:
-            case 6:
-                mPathMeasure.getPosTan(num * 6, pos1, null);
-                mPaint.setColor(Color.argb(0, 255, 54, 43));
-                canvas.drawPoint(pos1[0], pos1[1], mPaint);
-            case 5:
-                mPathMeasure.getPosTan(num * 5, pos1, null);
-                mPaint.setColor(Color.argb(255 - 28 * 1, 255, 54, 43));
-                canvas.drawPoint(pos1[0], pos1[1], mPaint);
-            case 4:
-                mPathMeasure.getPosTan(num * 4, pos1, null);
-                mPaint.setColor(Color.argb(255 - 28 * 2, 255, 54, 43));
-                canvas.drawPoint(pos1[0], pos1[1], mPaint);
-            case 3:
-                mPathMeasure.getPosTan(num * 3, pos1, null);
-                mPaint.setColor(Color.argb(255 - 28 * 3, 255, 54, 43));
-                canvas.drawPoint(pos1[0], pos1[1], mPaint);
-            case 2:
-                mPathMeasure.getPosTan(num * 2, pos1, null);
-                mPaint.setColor(Color.argb(255 - 28 * 4, 255, 54, 43));
-                canvas.drawPoint(pos1[0], pos1[1], mPaint);
-            case 1:
-                mPathMeasure.getPosTan(num, pos1, null);
-                mPaint.setColor(Color.argb(255 - 28 * 5, 255, 54, 43));
-                canvas.drawPoint(pos1[0], pos1[1], mPaint);
-            case 0:
-                mPathMeasure.getPosTan(0, pos1, null);
-                mPaint.setColor(Color.argb(255 - 6 * 28, 255, 54, 43));
-                canvas.drawPoint(pos1[0], pos1[1], mPaint);
-                break;
-        }
+        mPathMeasure2.getSegment(mPathLength * alpha * alpha, mPathLength * alpha * alpha + 100 * (-4 * alpha * alpha + 4 * alpha), path1, true);
+        canvas.drawPath(path1,mPaint);
     }
 
 
